@@ -33,7 +33,6 @@ def main():
 	train_data = df.values
 	test_data = df_test.values
 
-	# RandomForestClassifier + grid_search
 	clf = RandomForestClassifier(n_estimators=300)
 	param_grid = {"max_depth": [3, None],"max_features": [1,2,3],"min_samples_split": [1,2,3],"min_samples_leaf": [1, 3, 10],"bootstrap": [True, False],"criterion": ["gini", "entropy"]}
 	grid_search = GridSearchCV(clf, param_grid=param_grid,verbose=3,scoring='precision',cv=5)
