@@ -19,24 +19,17 @@ def clean_Embarked(dataframe):
 def main():
 	df = pd.read_csv('train.csv', header = 0)
 	df = new_column(df)
-
-	#drop some Nan first
 	df = df.drop(['Age', 'Fare', 'PassengerId', 'Name', 'Sex', 'Ticket', 'Cabin'], axis=1) 
 	df = df.dropna()
-
 	df = clean_Embarked(df)
 
 	################################################################################
-
 	df_test = pd.read_csv('test.csv', header = 0)
 	df_test = new_column(df_test)
-
 	df_test = clean_Embarked(df_test)
-
 	df_test = df_test.drop(['Age','Fare','PassengerId','Name', 'Sex', 'Ticket', 'Cabin'], axis=1) 
 
 	################################################################################
-
 	train_data = df.values
 	test_data = df_test.values
 
